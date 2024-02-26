@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "fastify": "^4.26.1",
+    "mongoose": "^8.2.0",
+    "nodemon": "^3.1.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  }
+}
