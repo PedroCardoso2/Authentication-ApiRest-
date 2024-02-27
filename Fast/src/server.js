@@ -1,20 +1,7 @@
-import Fastify from "fastify";
+import app from "./app.js";
 
-const port = 3000;
+const PORT = 3000;
 
-const app = Fastify({logger : true});
-
-
-app.get('/', () => {
-    return "Olá";
-});
-
-
-app.listen({
-    port
-}, (error, address) => {
-    if(error){
-        app.log.error(error);
-        process.exit(1);
-    }
+app.listen(PORT, () => {
+  console.log("servidor escutando!");
 });
