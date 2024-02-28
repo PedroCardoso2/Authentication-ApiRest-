@@ -1,20 +1,20 @@
-import mongose from "mongoose";
+// Importa e configura o pacote dotenv para carregar as variáveis de ambiente do arquivo .env
+import dotenv from "dotenv";
+dotenv.config();
+
+import mongoose from "mongoose";
 
 async function conectaDbConnection() {
-  mongose
-    .connect(
-      "mongodb+srv://login:login123@loginmennage.6e5wnre.mongodb.net/LoginAuthentication?retryWrites=true&w=majority&appName=LoginMennage"
-    )
+  mongoose
+    .connect(process.env.DB_CONNECTION)
     .then(() => {
-      console.log("Conection MongoDb");
+      console.log("Conexão MongoDB estabelecida");
     })
-    .catch(() => {
-      console.log("Erro ao Connectar");
+    .catch((error) => {
+      console.error("Erro ao conectar ao MongoDB:", error.message);
     });
 
-  return mongose.connection;
+  return mongoose.connection;
 }
 
 export default conectaDbConnection;
-
-//  mongodb+srv://login:login123@cluster0.iwuqqg4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
